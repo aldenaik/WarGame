@@ -31,8 +31,6 @@ $(document).ready(function() {
 	//shuffle the deck
 	
 	deck=_.shuffle(deck);
-	console.log(deck);
-
 	
 	var cards_player_1 = [];
 	var cards_player_2 = [];
@@ -51,31 +49,68 @@ $(document).ready(function() {
 	
 	//create a function (algorithm) called "war" that takes two cards as parameters, compares them and returns a winner. A tie should return false.
 	function war (deckA,deckB){
-
-		holding1=cards_player_1.splice(0,1);
-		holding2=cards_player_2.splice(0,1);
+				
+		// holding1=cards_player_1.splice(0,2);
+		// holding2=cards_player_2.splice(0,2);
+				
 
 
 	 		if (cards_player_1[0].number>cards_player_2[0].number)
 	 		{
+	 			holding1=new Object();
+				holding1.number=cards_player_1[0].number;
+				holding1.suit=cards_player_1[0].suit;
+					
 					$(cards_player_1.push(holding1))
+
+
+				holding2=new Object();
+				holding2.number=cards_player_2[0].number;
+				holding2.suit=cards_player_2[0].suit;
+					
 					$(cards_player_1.push(holding2))
-						holding1.splice(0,1);
-						holding2.splice(0,1);
+					cards_player_1.splice(0,1);
+					cards_player_2.splice(0,1);
+					console.log (cards_player_1)
+						
 
 
 			}	 
 	 		else if (cards_player_1[0].number<cards_player_2[0].number)
 	 		{ 
+				holding1=new Object();
+				holding1.number=cards_player_1[0].number;
+				holding1.suit=cards_player_1[0].suit;
+					
 					$(cards_player_2.push(holding1))
+
+
+				holding2=new Object();
+				holding2.number=cards_player_2[0].number;
+				holding2.suit=cards_player_2[0].suit;
+					
 					$(cards_player_2.push(holding2))
-						holding1.splice(0,1);
-						holding2.splice(0,1);	 	}
+					cards_player_1.splice(0,1);
+					cards_player_2.splice(0,1); 
+					console.log(cards_player_2)
+			}
 	 	else {
-	 			$(cards_player_1.push(holding1))
-				$(cards_player_2.push(holding2))
-						holding1.splice(0,1);
-						holding2.splice(0,1);
+	 			holding1=new Object();
+					holding1.number=cards_player_1[0].number;
+					holding1.suit=cards_player_1[0].suit;
+					
+					$(cards_player_1.push(holding1))
+
+
+				holding2=new Object();
+				holding2.number=cards_player_2[0].number;
+				holding2.suit=cards_player_2[0].suit;
+					
+					$(cards_player_2.push(holding2))
+					cards_player_1.splice(0,1);
+					cards_player_2.splice(0,1);
+					console.log (cards_player_1)
+					console.log (cards_player_2)
 	 	}
 	};
 
